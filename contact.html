@@ -60,10 +60,11 @@
     <form action="">
         <span>Leave a Message</span>
         <h2>love to hear from you</h2>
-        <input type="text" placeholder="Your Name">
-        <input type="text" placeholder="E-mail">
-        <input type="text" placeholder="Subject">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <form onsubmit=>"emailSend(); reset();return false;">
+        <input type="text" id="name" placeholder="Your Name" name="name" required>
+        <input type="text" id="email" placeholder="E-mail" name="email" required>
+        <input type="text" id="subject" placeholder="Subject" name="subject" required>
+        <textarea name="" id="your message" id="" cols="30" rows="10" placeholder="Your Message" name="your message" required></textarea>
         <button class="normal">Submit</button>
 
 
@@ -152,7 +153,10 @@
             <p> 2021,Tech2 etc - html css e commerce hello</p>
         </div>
     </section>
+    <script src="https://smtpjs.com/v3/smtp.js">
+</script>
 
     <script src="main.js"></script>
+   
 </body>
 </html>
