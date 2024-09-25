@@ -60,12 +60,14 @@
     <form action="">
         <span>Leave a Message</span>
         <h2>love to hear from you</h2>
-        <form onsubmit="emailSend(); reset();return false;">
-        <input type="text" id="name" placeholder="Your Name" name="name" required>
-        <input type="text" id="email" placeholder="E-mail" name="email" required>
-        <input type="text" id="subject" placeholder="Subject" name="subject" required>
+  <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9c2c8c30-400e-4da3-a4cf-0041dfd6abf3">
+       <input type="text" class="contact-inputs" name="name" required>
+    <input type="text" class="contact-inputs" placeholder="phone" name="phone" required>
+    <input type="text" class="contact-inputs" placeholder="email" name="email" required>
         <textarea name="" id="your message" id="" cols="30" rows="10" placeholder="Your Message" name="your message" required></textarea>
         <button class="normal">Submit</button>
+  </form>
 
 
     </form>
