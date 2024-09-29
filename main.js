@@ -16,19 +16,19 @@ if(close){
 
     })
 }
-         function emailsend(){
+//          function emailsend(){
     
-   Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "ajeet.thapa2005@gmail.com",
-    Password : "E1BBE45C86D55CF1C3235FD069C860A465B5",
-    To : 'ajeet.thapa2005@gmail.com',
-    From : "ajeet.thapa2005@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
-}).then(
-  message => alert(message)
-);
-    }
+//    Email.send({
+//     Host : "smtp.elasticemail.com",
+//     Username : "ajeet.thapa2005@gmail.com",
+//     Password : "E1BBE45C86D55CF1C3235FD069C860A465B5",
+//     To : 'ajeet.thapa2005@gmail.com',
+//     From : "ajeet.thapa2005@gmail.com",
+//     Subject : "This is the subject",
+//     Body : "And this is the body"
+// }).then(
+//   message => alert(message)
+// );
+//     }
         
         

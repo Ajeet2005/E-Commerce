@@ -92,10 +92,14 @@
         <p>Get e-mail update about our latest shop and <span>special offers</span></p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
+        <form action="./email.php"   method="POST">
+
+            <input type="text" class="contact-inputs" placeholder="Your email address" name="email" required>
+            <button class="normal">Sign Up</button>
     </div>
 </section>
+</form>
+
 
 <footer class="section-p1">
     <div class="col">
@@ -145,13 +149,13 @@
             <img src="./images/play.jpg">  </div>
             <p>Secured Payment Gateways</p>
             <img src="./images/pay.png">
-        </footer>
-
+       
+</div>
 
         <div class="copyright">
             <p> 2021,Tech2 etc - html css e commerce hello</p>
         </div>
-    </section>
+    </footer>
 
     <script src="main.js"></script>
 </body>
