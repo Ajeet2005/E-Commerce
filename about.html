@@ -19,6 +19,7 @@
                 <li><a class="active" href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="login.html">Login</a></li>
 
             </ul>
         </div>
@@ -42,7 +43,7 @@
         pellentesque eu, pretium quis, sem. Nulla consequat massa
         . Aenean vulputate eleifend tellus</abbr>
         <br><br>
-        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
+        <marquee bgcolour="#ccc" loop="-1" scrollamount="5" width="100%">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
             pellentesque eu, pretium quis, sem. Nulla consequat massa
             . Aenean vulputate eleifend tellus
@@ -53,7 +54,7 @@
 <section id="about-app" class="section-p1">
     <h1>Download Our <a href="">App</a></h1>
     <div class="video">
-        <video autoplay loop src="./images/1.mp4">
+        <video autoplay muted loop  src="./images/1.mp4">
 
         </video>
 
@@ -92,10 +93,12 @@
         <p>Get e-mail update about our latest shop and <span>special offers</span></p>
     </div>
     <div class="form">
-        <form action="./email.php"   method="POST">
+        <form action="./email.php"   method="POST" style="display: flex;">
 
+            
             <input type="text" class="contact-inputs" placeholder="Your email address" name="email" required>
-            <button class="normal">Sign Up</button>
+                <button class="normal">Sign Up</button>
+            </form>            
     </div>
 </section>
 </form>
@@ -134,8 +137,8 @@
     </div>
     <div class="col">
         <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
+        <a href="login.html">Sign In</a>
+        <a href="cart.html">View Cart</a>
         <a href="#">My Wishlist</a>
         <a href="#">Track My Order</a>
         <a href="#">Help</a>

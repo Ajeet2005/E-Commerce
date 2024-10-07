@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="preloader">
+
+    </div>
     <section id="header">
         <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
         <div>
@@ -19,6 +22,8 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="login.html">Login</a></li>
+
 
             </ul>
         </div>
@@ -204,7 +209,7 @@
     <Section id="banner" class="section-m1">
         <h4>Repair Services</h4>
         <h2>Up to <span>70% Off </span>- All t-Shirts & Accessories</h2>
-        <button class="normal">Explore More</button>
+        <button class="normal"><a href="shop.html">Explore More</a></button>
     </Section>
 
     <section id="product1" class="section-p1">
@@ -370,15 +375,15 @@
 
 <section id="banner3">
     <div class="banner-box">
-        <h2>SEASONAL SALE</h2>
+        <h2><a href="" style=" color: white; ">SEASONAL SALE</a>  </h2>
         <h3>Winter Collection -50% OFF</h3>
     </div>
     <div class="banner-box banner-box2">
-        <h2>SEASONAL SALE</h2>
-        <h3>Upcoming Season</h3>
+        <h2><a href="" style=" color: white; ">WINTER SALE</a>  </h2>
+          <h3>Upcoming Season</h3>
     </div>
     <div class="banner-box banner-box3">
-        <h2>SEASONAL SALE</h2>
+        <h2><a href="" style=" color: white; ">STOCK CLEARANCE</a>  </h2>
         <h3>Winter Collection -50% OFF</h3>
     </div>
     
@@ -391,10 +396,14 @@
         <p>Get e-mail update about our latest shop and <span>special offers</span></p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
+        <form action="email.php" method="POST" style="
+        display: flex;">
+            <input type="text" class="contact-inputs" placeholder="Your email address" name="email" required="">
+            <button class="normal">Sign Up</button>
+        </form>      
     </div>
 </section>
+</form>
 <footer class="section-p1">
     <div class="col">
         <img class="logo" src="./images/logo.png">
@@ -428,7 +437,7 @@
     </div>
     <div class="col">
         <h4>My Account</h4>
-        <a href="#">Sign In</a>
+        <a href="login.html">Sign In</a>
         <a href="#">View Cart</a>
         <a href="#">My Wishlist</a>
         <a href="#">Track My Order</a>
@@ -452,7 +461,15 @@
 
         </marquee>     
        </div>
+<script>
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", function(){
+        setTimeout(function(){
 
+loader.style.display ="none";
+        },2000);
+    });
+</script>
 
     <script src="main.js"></script>
 </body>

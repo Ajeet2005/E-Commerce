@@ -72,7 +72,7 @@ body{
     padding: 20px 20px;
     background: #E3E6f3;
     box-shadow: 0 50px 15px rgba(0, 0, 0, 0.06);
-    z-index: 999;
+    z-index: 99;
     position: sticky;
     top: 0;
     left: 0;
@@ -111,6 +111,7 @@ body{
     left: 20px;
 
 }
+
 #hero{
     background-image: url(./images/hero4.png);
     height: 90vh;
@@ -287,6 +288,9 @@ background-position: center;
     color: #ef3636; 
 
 }
+#banner button a{
+    color: #088178;
+}
 #banner button:hover{
     background-color: #088178;
     color: #fff;
@@ -363,14 +367,18 @@ background-position: center;
     padding: 20px;
     border-radius: 20px;
 }
-#banner3 .banner-box2{
+#banner3 .banner-box2 h2 a{
+    color: #fff !important;
 background-image: url(./images/b4.jpg);
+
 }
 #banner3 .banner-box3{
     background-image: url(./images/b18.jpg);
+
     }
-#banner3 h2{
-    color: #fff;
+   
+#banner3 h2 a{ 
+    color: #ffffff;
     font-weight: 900;
     font-size: 22px;
 }
@@ -419,6 +427,7 @@ color: #ffbd27;
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    flex-grow: 1;
 }
 #newsletter button{
 background-color: #088178;
@@ -510,6 +519,9 @@ padding: 14px;
     border-radius: 4px;
     color: #fff;
     font-weight: 600;
+}
+#pagination a:hover{
+    color: #fff;
 }
 #pagination i{
     font-size: 16px;
@@ -657,7 +669,7 @@ background-color: #088178;
 }
 #about-app .video video{
     width: 100%;
-    height: 1005;
+    height: 100%;
     border-radius: 20px;
 }
 #contact-details{
@@ -711,7 +723,7 @@ height: 400px;
 
 }
 #form-details form{
-    width: 65%;
+    width: 150%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -876,4 +888,120 @@ padding: 18px 0;
     border: 1px solid #e2e9e1;
     padding: 10px;
     font-size: 13px;
+}
+#preloader{
+    background: #fff url(lg.gif) no-repeat center center;
+    background-size: 20%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+
+}
+
+
+/* Login Form Container */
+.login-form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    border: 2px solid blue;
+}
+
+.login-link {
+    display: block;
+    margin-bottom: 20px;
+    color: grey;
+    font-size: 0.9rem;
+    text-align: right;
+}
+.login-link span{
+    color: red;
+    
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-form label {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.signup-form input {
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.birthday {
+    display: flex;
+    gap: 10px;
+    width: 30%;
+    height: 3vh;
+    opacity: 47%;
+}
+.birthday select[name="month"] {
+margin-right: 15px;
+}
+.birthday select[name="Day"] {
+    margin-right: 15px;
+    }
+    .birthday select[name="Year"] {
+        margin-right: 15px;
+        }
+
+
+.signup-button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: darkblue;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.facebook-button, .google-button {
+    background-color: #3b5998; /* Facebook */
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 45%;
+    cursor: pointer;
+}
+
+.google-button {
+    background-color: #dd4b39; /* Google */
+}
+
+.social-buttons button:hover {
+    opacity: 0.8;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
 }
