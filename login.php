@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'mail');
+$con = mysqli_connect('localhost', 'root', '', 'email');
 
 if ($con) {
     // Connection Successful

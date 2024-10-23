@@ -1,13 +1,13 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'mail');
+$con = mysqli_connect('localhost', 'root', '', 'email');
 
 if ($con) {
-    // Connection Successful
+    // Connection Successful 
 } else {
     die("Connection Failed: " . mysqli_connect_error());
 }
 // var_dump ($_POST);
-$email = $_POST['email'];
+$email = $_POST['email'];               
 
 // echo $name
 // Prepared statement to prevent SQL injection

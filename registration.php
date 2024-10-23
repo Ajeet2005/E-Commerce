@@ -1,19 +1,19 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'mail');
+$con = mysqli_connect('localhost', 'root', '', 'email');
 
-if ($con) {
-    // Connection Successful
-} else {
+if (!$con) {
     die("Connection Failed: " . mysqli_connect_error());
 }
-// var_dump ($_POST);
+
 $number = $_POST['number'];
 $password = $_POST['password'];
 
-// echo $name
+// Password hashing for security
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // Prepared statement to prevent SQL injection
-$stmt = $con->prepare("INSERT INTO login (number, password) VALUES (?,?)");
-$stmt->bind_param("ss", $number, $password);
+$stmt = $con->prepare("INSERT INTO login (number, password) VALUES (?, ?)");
+$stmt->bind_param("ss", $number, $hashed_password);
 
 $response = array();
 
@@ -27,5 +27,7 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $con->close();
+
+// Return response as JSON
 echo json_encode($response);
 ?>
