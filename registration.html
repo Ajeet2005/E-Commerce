@@ -33,7 +33,7 @@
         <h2>Login With <span style="color: blue;"> Password</h2>
         <a href="login.html" class="login-link">Are you new member? <span>Register </span>here</a>
         
-        <form action="registration.php" method="POST" class="signup-form">
+        <form action="sessionlogin.php" method="POST" class="signup-form" autocomplete="off">
             <label>Phone Number Or Email</label>
             <input type="text" class="contact-inputs" placeholder="Enter your number" name="number" required>
             
@@ -41,7 +41,7 @@
             <input type="text" class="contact-inputs" placeholder="Enter your password" name="password" required>
           
     
-            <button type="submit" class="signup-button">LOGIN</button>
+            <button type="submit" class="signup-button" name="Login">LOGIN</button>
     
             <p>Or, Sign Up With</p>
             <div class="social-buttons">
