@@ -22,7 +22,8 @@ if (isset($_POST['Login'])) {
         // Verifying the password with the hashed password in the database
         if ($password == $user['password']) {
             // Success: Password matches
-            echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
+            header('Location: shop.html');
+            // echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
             // You can start a session here to log the user in
         } else {
             // Failure: Incorrect password
