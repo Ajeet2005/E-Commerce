@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'email');
+$con = mysqli_connect('localhost', 'root', '', 'database');
 
 if ($con) {
     // Connection Successful
@@ -12,7 +12,7 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $your_message = $_POST['message'];
 
-$stmt = $con->prepare("INSERT INTO email (name, email, phone, message) VALUES (?, ?, ?, ?)");
+$stmt = $con->prepare("INSERT INTO feedback (name, email, phone, message) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $name, $email, $phone, $your_message);
 
 $response = array();

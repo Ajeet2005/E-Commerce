@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'email');
+$con = mysqli_connect('localhost', 'root', '', 'database');
 
 if (!$con) {
     die("Connection Failed: " . mysqli_connect_error());
@@ -12,7 +12,7 @@ $password = $_POST['password'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Prepared statement to prevent SQL injection
-$stmt = $con->prepare("INSERT INTO login (number, password) VALUES (?, ?)");
+$stmt = $con->prepare("INSERT INTO loggedin (number, password) VALUES (?, ?)");
 $stmt->bind_param("ss", $number, $hashed_password);
 
 $response = array();

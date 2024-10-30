@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'email');
+$con = mysqli_connect('localhost', 'root', '', 'database');
 
 if ($con) {
     // Connection Successful
@@ -17,7 +17,7 @@ $month = $_POST['month'];
 
 // echo $name
 // Prepared statement to prevent SQL injection
-$stmt = $con->prepare("INSERT INTO registration (number, password, full_name, month) VALUES (?,?,?,?)");
+$stmt = $con->prepare("INSERT INTO register (number, password, full_name, month) VALUES (?,?,?,?)");
 $stmt->bind_param("ssss", $number, $password, $full_name, $month);
 
 $response = array();

@@ -1,46 +1,52 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'email');
+session_start(); // Start the session
 
+$con = mysqli_connect('localhost', 'root', '', 'database');
 if (!$con) {
     die("Connection Failed: " . mysqli_connect_error());
 }
+
+// Set session timeout to 1 minute (60 seconds)
+$session_lifetime = 60;
+ini_set('session.gc_maxlifetime', $session_lifetime);
+setcookie(session_name(), session_id(), time() + $session_lifetime, "/");
+
 if (isset($_POST['Login'])) {
-    // Fetching user input
     $number = $_POST['number'];
     $password = $_POST['password'];
     
     // Prepared statement to prevent SQL injection
-    $stmt = $con->prepare("SELECT * FROM registration WHERE number = ?");
+    $stmt = $con->prepare("SELECT * FROM register WHERE number = ?");
     $stmt->bind_param("s", $number);
     $stmt->execute();
     
-    // Fetch the result
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); // Get the user record
 
     if ($user) {
-        // Verifying the password with the hashed password in the database
+        // Verifying the password
         if ($password == $user['password']) {
-            // Success: Password matches
-            header('Location: shop.html');
-            // echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
-            // You can start a session here to log the user in
-        } else {
-            // Failure: Incorrect password
-            echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
+            // Store additional user information in session
+            $_SESSION['number'] = $user['number'];
+            $_SESSION['full_name'] = $user['full_name'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['birthdate'] = $user['birthdate'];
+            $_SESSION['last_activity'] = time(); // Set the last activity time
+        
+            header('Location: loginprofile.php'); // Redirect to the profile page
+            exit();
         }
+         else {
+            header('Location: registration.html?message=Account details not valid'); // Redirect to the profile page
+// message at the top of web alert type of message
+            // echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
+        }
+
     } else {
-        // Failure: User not found
         echo json_encode(['status' => 'error', 'message' => 'User not found.']);
     }
 
-    // Close statement and connection
     $stmt->close();
     $con->close();
 }
-
 ?>
-
-
-
-

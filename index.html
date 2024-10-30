@@ -28,6 +28,96 @@
             </ul>
         </div>
     </section>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    .navbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    
+    .search-bar {
+    display: none; /* Hidden initially */
+    width: 100%;
+    padding-top: 36px;
+    padding-left: 35%; /* Adjusted for better alignment */
+    background-color: #f1f1f1;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 60px; /* Adjust according to your navbar height */
+    z-index: 1;
+}
+
+    
+    .search-bar input {
+        width: 50%;
+        padding: 8px;
+        font-size: 16px;
+    }
+    
+    .search-bar button {
+        padding: 8px;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-bar button:hover {
+        background-color: #555;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+</style>    
+<div class="search-bar" id="scrollSearchBar">
+    <input type="text" id="productSearch" placeholder="Search for products...">
+    <button onclick="searchProduct()">Search</button>
+</div>
+
+<script>
+    // Show search bar on scroll
+    window.addEventListener('scroll', function() {
+        const scrollSearchBar = document.getElementById('scrollSearchBar');
+        if (window.scrollY > 100) {
+            scrollSearchBar.style.display = 'flex';
+        } else {
+            scrollSearchBar.style.display = 'none';
+        }
+    });
+
+    // Search function
+    const searchProduct = () => {
+        const searchbox = document.getElementById("productSearch").value.toUpperCase();
+        const products = document.querySelectorAll(".pro");
+
+        products.forEach(product => {
+            const productName = product.querySelector('h5').textContent.toUpperCase(); // Get product name
+
+            if (productName.includes(searchbox)) { // Check if search term is in product name
+                product.style.display = ""; // Show product if it matches
+            } else {
+                product.style.display = "none"; // Hide product if it doesn't match
+            }
+        });
+    }
+
+    // Add event listener for input changes
+    document.getElementById("productSearch").addEventListener("input", function() {
+        searchProduct(); // Call search function on input change
+    });
+</script>
+
+    
     <section id="hero">
         <h4>Trade-In-Offer</h4>
         <h1>Super Value Deals</h1>
@@ -64,7 +154,7 @@
         <h2>featured Products</h2>
         <p>Summer Collection New Modern Design</p>
         <div class="pro-container">
-            <div class="pro">
+            <div class="pro" data-name="Cartoon Astronaut T-Shirts">
                 <img src="images/f1.jpg">
                 <div class="des">
                     <span>adidas</span>
@@ -85,7 +175,7 @@
                 <img src="images/f2.jpg">
                 <div class="des">
                     <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <h5>Moon Astronaut T-Shirts</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -103,7 +193,7 @@
                 <img src="images/f3.jpg">
                 <div class="des">
                     <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <h5>Star Astronaut T-Shirts</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
