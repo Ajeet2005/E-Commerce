@@ -22,6 +22,7 @@ if (isset($_POST['Login'])) {
     
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); // Get the user record
+var_dump ($user);
 
     if ($user) {
         // Verifying the password
@@ -30,14 +31,14 @@ if (isset($_POST['Login'])) {
             $_SESSION['number'] = $user['number'];
             $_SESSION['full_name'] = $user['full_name'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['birthdate'] = $user['birthdate'];
+            $_SESSION['birthdate'] = $user['dob'];
             $_SESSION['last_activity'] = time(); // Set the last activity time
         
             header('Location: loginprofile.php'); // Redirect to the profile page
             exit();
         }
          else {
-            header('Location: registration.html?message=Account details not valid'); // Redirect to the profile page
+            // header('Location: registration.html?message=Account details not valid'); // Redirect to the profile page
 // message at the top of web alert type of message
             // echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
         }

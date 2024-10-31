@@ -11,14 +11,14 @@ $number = $_POST['number'];
 $password = $_POST['password'];
 $full_name = $_POST['full_name'];
 $month = $_POST['month'];
-// $day = $_POST['day'];
-// $year = $_POST['year'];
-
+$day = $_POST['day'];
+$year = $_POST['year'];
+$DOB = $year."/".$month."/".$day;
 
 // echo $name
 // Prepared statement to prevent SQL injection
-$stmt = $con->prepare("INSERT INTO register (number, password, full_name, month) VALUES (?,?,?,?)");
-$stmt->bind_param("ssss", $number, $password, $full_name, $month);
+$stmt = $con->prepare("INSERT INTO register (number, password, full_name, dob) VALUES (?,?,?,?)");
+$stmt->bind_param("ssss", $number, $password, $full_name, $DOB);
 
 $response = array();
 
