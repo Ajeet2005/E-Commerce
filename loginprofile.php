@@ -173,13 +173,14 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'ima
         <div class="profile-info">
             <h2 id="user-fullname">Welcome, <?php echo htmlspecialchars($full_name); ?></h2>
             <p class="profile-role">Consumer</p>
-            <p class="profile-country" id="user-country">Nepal, Test</p>
+            <p class="profile-country" id="user-country">Nepal</p>
         </div>
     </div>
 
     <div class="profile-section">
         <h3>Select Profile Picture</h3>
         <select id="profile-pic-dropdown" class="profile-pic-dropdown" onchange="selectProfilePic(this.value)">
+
             <option value="images/default-pic.png">Default</option>
             <option value="images/1.png">Profile Picture 1</option>
             <option value="images/2.png">Profile Picture 2</option>
@@ -190,7 +191,8 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'ima
 
     <div class="profile-section">
         <h3>Personal Information</h3>
-        <p><strong>First Name:</strong> <?php echo htmlspecialchars($full_name); ?></p>
+
+        <p><strong>Full Name:</strong> <?php echo htmlspecialchars($full_name); ?></p>
         <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
         <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['number']); ?></p>
         <p><strong>Birthdate:</strong> <?php echo htmlspecialchars($birthdate); ?></p>

@@ -1,6 +1,7 @@
 <?php
 session_start(); // Start the session
 
+// Database connection
 $con = mysqli_connect('localhost', 'root', '', 'database');
 if (!$con) {
     die("Connection Failed: " . mysqli_connect_error());
@@ -14,7 +15,7 @@ setcookie(session_name(), session_id(), time() + $session_lifetime, "/");
 if (isset($_POST['Login'])) {
     $number = $_POST['number'];
     $password = $_POST['password'];
-    
+
     // Prepared statement to prevent SQL injection
     $stmt = $con->prepare("SELECT * FROM register WHERE number = ?");
     $stmt->bind_param("s", $number);
@@ -22,7 +23,6 @@ if (isset($_POST['Login'])) {
     
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); // Get the user record
-var_dump ($user);
 
     if ($user) {
         // Verifying the password
@@ -33,16 +33,16 @@ var_dump ($user);
             $_SESSION['email'] = $user['email'];
             $_SESSION['birthdate'] = $user['dob'];
             $_SESSION['last_activity'] = time(); // Set the last activity time
-        
+            
+            // Fetch and store profile picture from the database or set a default if null
+            $profile_pic = !empty($user['profilepic']) ? $user['profilepic'] : 'images/default-pic.png';
+            $_SESSION['profile_pic'] = $profilepic;
+
             header('Location: loginprofile.php'); // Redirect to the profile page
             exit();
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
         }
-         else {
-            // header('Location: registration.html?message=Account details not valid'); // Redirect to the profile page
-// message at the top of web alert type of message
-            // echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
-        }
-
     } else {
         echo json_encode(['status' => 'error', 'message' => 'User not found.']);
     }
