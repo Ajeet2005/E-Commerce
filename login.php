@@ -47,7 +47,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'register') {
 
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); // Fetch the user record
-
     $response = array();
 
     if ($user) {
