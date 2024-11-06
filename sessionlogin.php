@@ -27,17 +27,19 @@ if (isset($_POST['Login'])) {
     if ($user) {
         // Verifying the password
         if ($password == $user['password']) {
-            // Store additional user information in session
+            // Store user information in session
             $_SESSION['number'] = $user['number'];
             $_SESSION['full_name'] = $user['full_name'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['birthdate'] = $user['dob'];
+            $_SESSION['country'] = $user['country']; // Store country
+            $_SESSION['city'] = $user['city']; // Store city
             $_SESSION['last_activity'] = time(); // Set the last activity time
             
             // Fetch and store profile picture from the database or set a default if null
-            $profile_pic = !empty($user['profilepic']) ? $user['profilepic'] : 'images/default-pic.png';
-            $_SESSION['profile_pic'] = $profilepic;
-
+            $profilepic = !empty($user['profilepic']) ? $user['profilepic'] : 'images/default-pic.png';
+            $_SESSION['profilepic'] = $profilepic;
+    
             header('Location: loginprofile.php'); // Redirect to the profile page
             exit();
         } else {

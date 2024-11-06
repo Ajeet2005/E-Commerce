@@ -9,7 +9,6 @@ if (!isset($_SESSION['number'])) {
 $full_name = $_SESSION['full_name'];
 $email = $_SESSION['email'];
 $birthdate = $_SESSION['birthdate'];
-$profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'images/default-pic.png';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -196,6 +195,9 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'ima
         <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
         <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['number']); ?></p>
         <p><strong>Birthdate:</strong> <?php echo htmlspecialchars($birthdate); ?></p>
+        <p><strong>Country:</strong> <?php echo htmlspecialchars($_SESSION['country']); ?></p>
+<p><strong>City:</strong> <?php echo htmlspecialchars($_SESSION['city']); ?></p>
+
     </div>
 
     <div class="profile-section">
@@ -215,6 +217,11 @@ $profile_pic = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : 'ima
 
     <button onclick="logout()" class="logout-button">Log Out</button>
 </div>
+<script>
+    function logout() {
+        window.location.href = 'logout.php'; // Redirect to logout.php when the button is clicked
+    }
+</script>
 
 <script>
     function selectProfilePic(picUrl) {
