@@ -568,6 +568,8 @@ loader.style.display ="none";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page with Support Section</title>
+    <iframe src="https://app.fastbots.ai/bots/cm6nbbqmn0b2msvk364o2pto4" width="100%" height="500px" style="border: none;"></iframe>
+
     <style>
         /* Styling for the support icon */
         .support-icon {
@@ -669,24 +671,36 @@ loader.style.display ="none";
         // Function to toggle the visibility of the support box
         function toggleSupportBox() {
             var supportBox = document.getElementById("supportBox");
+            // Check if the support box is currently hidden or not
             if (supportBox.style.display === "none" || supportBox.style.display === "") {
-                supportBox.style.display = "flex";
+                supportBox.style.display = "flex"; // Show the box
             } else {
-                supportBox.style.display = "none";
+                supportBox.style.display = "none"; // Hide the box
             }
         }
-
+    
         // Function to handle user query submission
         function submitQuery() {
-            var query = document.getElementById("userQuery").value;
-            if (query.trim() !== "") {
+            var query = document.getElementById("userQuery").value.trim(); // Trim input to remove extra spaces
+            if (query !== "") {
+                // Display the user's query in an alert (or can send it to a server)
                 alert("Your question has been submitted: " + query);
                 document.getElementById("userQuery").value = ""; // Clear the input after submission
+                // Optionally hide the support box after submission
+                document.getElementById("supportBox").style.display = "none";
             } else {
                 alert("Please enter a question before submitting.");
             }
         }
+    
+        // Optional: Focus on the input box when the support section opens
+        function openSupportBox() {
+            var supportBox = document.getElementById("supportBox");
+            supportBox.style.display = "flex"; // Make sure the box is visible
+            document.getElementById("userQuery").focus(); // Focus on the input field
+        }
     </script>
+    
 </body>
 </html>
 
