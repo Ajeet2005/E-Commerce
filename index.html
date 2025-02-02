@@ -562,5 +562,133 @@ loader.style.display ="none";
 </script>
 
     <script src="main.js"></script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page with Support Section</title>
+    <style>
+        /* Styling for the support icon */
+        .support-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Styling for the support box */
+        .support-box {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 250px;
+            background-color: #f1f1f1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        /* Styling for the welcome message */
+        .support-box h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .support-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Styling for the question input area */
+        .input-area {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        /* Styling for the submit button */
+        .submit-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Content of your page -->
+    <div>
+        <h1>Welcome to My Home Page!</h1>
+        <!-- Your existing page content goes here -->
+    </div>
+
+    <!-- Support Icon -->
+    <div class="support-icon" onclick="toggleSupportBox()">
+        ?
+    </div>
+
+    <!-- Support Box (Initially hidden) -->
+    <div class="support-box" id="supportBox">
+        <h4>Welcome to Support!</h4>
+        <p>How can I assist you today?</p>
+        <textarea class="input-area" id="userQuery" placeholder="Ask your question here..."></textarea>
+        <button class="submit-button" onclick="submitQuery()">Submit</button>
+    </div>
+
+    <script>
+        // Function to toggle the visibility of the support box
+        function toggleSupportBox() {
+            var supportBox = document.getElementById("supportBox");
+            if (supportBox.style.display === "none" || supportBox.style.display === "") {
+                supportBox.style.display = "flex";
+            } else {
+                supportBox.style.display = "none";
+            }
+        }
+
+        // Function to handle user query submission
+        function submitQuery() {
+            var query = document.getElementById("userQuery").value;
+            if (query.trim() !== "") {
+                alert("Your question has been submitted: " + query);
+                document.getElementById("userQuery").value = ""; // Clear the input after submission
+            } else {
+                alert("Please enter a question before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
+
 </body>
 </html>
