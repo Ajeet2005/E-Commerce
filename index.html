@@ -3,17 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
+    <title>Your Website Title</title> <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Your Existing Inline Styles (Keep or move to style.css) */
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color removed or set to transparent if using background image */
+            /* position: relative; if using pseudo-element background */
+        }
+
+        /* Pseudo-element background from previous example (optional) */
+        /*
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('path/to/your/shoe-image.jpg'); // REPLACE
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.1; // Adjust opacity
+            z-index: -1;
+        }
+        */
+
+        /* Search Bar Styling (Keep or move to style.css) */
+        /* Note: .navbar class is not used in your HTML, consider removing */
+        .search-bar {
+            display: none; /* Hidden initially */
+            width: 100%;
+            padding-top: 15px; /* Adjusted padding */
+            padding-bottom: 15px;
+            /* Adjust padding-left/right or use max-width and margin auto for centering */
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: #f1f1f1;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 60px; /* Adjust according to your #header height */
+            z-index: 50; /* Ensure it's above content */
+            display: flex; /* Use flex to align input and button */
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+            gap: 10px; /* Space between input and button */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .search-bar input {
+            width: 50%; /* Adjusted width */
+            max-width: 400px; /* Max width for larger screens */
+            padding: 10px; /* Adjusted padding */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px; /* Adjusted padding */
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #555;
+        }
+
+        /* Support Icon Styling */
+        .support-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #007BFF; /* Blue color */
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+            z-index: 1000; /* Ensure it's on top */
+            transition: background-color 0.3s ease;
+        }
+
+        .support-icon:hover {
+             background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Support Box Styling (Container for the chat iframe) */
+        .support-box {
+            position: fixed;
+            bottom: 80px; /* Position above the icon */
+            right: 20px;
+            /* Set size for the chat window */
+            width: 350px; /* Example width */
+            height: 500px; /* Example height */
+            background-color: #f9f9f9; /* Light background */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+            border-radius: 8px;
+            overflow: hidden; /* Hide content that exceeds dimensions */
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            z-index: 999; /* Below the icon, above other content */
+        }
+
+         /* Style the iframe to fill the support box */
+        .support-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove default iframe border */
+            display: block; /* Ensure it behaves as a block element */
+        }
+
+
+        /* Add basic padding to sections */
+        .section-p1 {
+            padding: 40px 80px;
+        }
+         .section-m1 {
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments (example - add more as needed) */
+        @media (max-width: 799px) {
+            .section-p1 {
+                padding: 40px 40px;
+            }
+             .search-bar input {
+                 width: 70%;
+             }
+             .support-box {
+                 width: 90%; /* Make box wider on smaller screens */
+                 right: 5%; /* Center it roughly */
+                 bottom: 80px; /* Adjust as needed */
+                 max-width: 350px; /* Prevent it from getting too big on tablets */
+             }
+             .support-icon {
+                 bottom: 15px;
+                 right: 15px;
+             }
+        }
+
+         @media (max-width: 477px) {
+             .section-p1 {
+                 padding: 20px;
+             }
+              .search-bar input {
+                 width: 80%;
+             }
+              .support-box {
+                 width: 95%;
+                 right: 2.5%;
+                 bottom: 70px; /* Adjust as needed */
+                 height: 400px; /* Make box shorter on small phones */
+             }
+             .support-icon {
+                 bottom: 10px;
+                 right: 10px;
+                 width: 40px;
+                 height: 40px;
+                 font-size: 20px;
+             }
+
+         }
+
+
+    </style>
 </head>
 <body>
     <div id="preloader">
+        </div>
 
-    </div>
     <section id="header">
-        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
+        <a href="#"><img src="images/logo.png" class="logo" alt="Logo"></a>
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
@@ -23,139 +193,56 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
                 <li><a href="login.html">Login</a></li>
-
-
-            </ul>
+                </ul>
         </div>
     </section>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    
-    .navbar {
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-    
-    .search-bar {
-    display: none; /* Hidden initially */
-    width: 100%;
-    padding-top: 36px;
-    padding-left: 35%; /* Adjusted for better alignment */
-    background-color: #f1f1f1;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 60px; /* Adjust according to your navbar height */
-    z-index: 1;
-}
 
-    
-    .search-bar input {
-        width: 50%;
-        padding: 8px;
-        font-size: 16px;
-    }
-    
-    .search-bar button {
-        padding: 8px;
-        font-size: 16px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .search-bar button:hover {
-        background-color: #555;
-    }
-    
-    .content {
-        padding: 20px;
-    }
-</style>    
-<div class="search-bar" id="scrollSearchBar">
-    <input type="text" id="productSearch" placeholder="Search for products...">
-    <button onclick="searchProduct()">Search</button>
-</div>
+     <div class="search-bar" id="scrollSearchBar">
+        <input type="text" id="productSearch" placeholder="Search for products...">
+        <button onclick="searchProduct()">Search</button>
+    </div>
 
-<script>
-    // Show search bar on scroll
-    window.addEventListener('scroll', function() {
-        const scrollSearchBar = document.getElementById('scrollSearchBar');
-        if (window.scrollY > 100) {
-            scrollSearchBar.style.display = 'flex';
-        } else {
-            scrollSearchBar.style.display = 'none';
-        }
-    });
 
-    // Search function
-    const searchProduct = () => {
-        const searchbox = document.getElementById("productSearch").value.toUpperCase();
-        const products = document.querySelectorAll(".pro");
-
-        products.forEach(product => {
-            const productName = product.querySelector('h5').textContent.toUpperCase(); // Get product name
-
-            if (productName.includes(searchbox)) { // Check if search term is in product name
-                product.style.display = ""; // Show product if it matches
-            } else {
-                product.style.display = "none"; // Hide product if it doesn't match
-            }
-        });
-    }
-
-    // Add event listener for input changes
-    document.getElementById("productSearch").addEventListener("input", function() {
-        searchProduct(); // Call search function on input change
-    });
-</script>
-
-    
     <section id="hero">
         <h4>Trade-In-Offer</h4>
         <h1>Super Value Deals</h1>
         <p>Save more with Coupons & up to 70% off</p>
         <button>Shop Now</button>
     </section>
+
     <section id="feature" class="section-p1">
         <div class="fe-box">
-            <img src="./images/f1.png" >
+            <img src="./images/f1.png" alt="Free Shipping">
             <h6>Free Shipping</h6>
         </div>
         <div class="fe-box">
-            <img src="./images/f2.png" >
+            <img src="./images/f2.png" alt="Online Order">
             <h6>Online Order</h6>
         </div>
         <div class="fe-box">
-            <img src="./images/f3.png" >
+            <img src="./images/f3.png" alt="Save Money">
             <h6>Save Money</h6>
         </div>
         <div class="fe-box">
-            <img src="./images/f4.png" >
+            <img src="./images/f4.png" alt="Promotions">
             <h6>Promotions</h6>
         </div>
         <div class="fe-box">
-            <img src="./images/f5.png" >
+            <img src="./images/f5.png" alt="Happy Sell">
             <h6>Happy Sell</h6>
         </div>
         <div class="fe-box">
-            <img src="./images/f6.png" >
+            <img src="./images/f6.png" alt="Support">
             <h6>Support</h6>
         </div>
     </section>
+
     <section id="product1" class="section-p1">
-        <h2>featured Products</h2>
+        <h2>Featured Products</h2>
         <p>Summer Collection New Modern Design</p>
         <div class="pro-container">
             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
-                <img src="images/f1.jpg">
+                <img src="images/f1.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -165,14 +252,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f2.jpg">
+             <div class="pro" data-name="Moon Astronaut T-Shirts">
+                <img src="images/f2.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Moon Astronaut T-Shirts</h5>
@@ -182,15 +268,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            
-            <div class="pro">
-                <img src="images/f3.jpg">
+             <div class="pro" data-name="Star Astronaut T-Shirts">
+                <img src="images/f3.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Star Astronaut T-Shirts</h5>
@@ -200,14 +284,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f4.jpg">
+             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
+                <img src="images/f4.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -217,14 +300,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f5.jpg">
+             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
+                <img src="images/f5.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -234,14 +316,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f6.jpg">
+             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
+                <img src="images/f6.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -251,14 +332,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f7.jpg">
+             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
+                <img src="images/f7.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -268,14 +348,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/f8.jpg">
+             <div class="pro" data-name="Cartoon Astronaut T-Shirts">
+                <img src="images/f8.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -285,29 +364,25 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            
-            
         </div>
-
     </section>
-    <Section id="banner" class="section-m1">
+
+     <section id="banner" class="section-m1">
         <h4>Repair Services</h4>
         <h2>Up to <span>70% Off </span>- All t-Shirts & Accessories</h2>
-        <button class="normal"><a href="shop.html">Explore More</a></button>
-    </Section>
+        <button class="normal"><a href="shop.html" style="text-decoration: none; color: inherit;">Explore More</a></button>
+    </section>
 
-    <section id="product1" class="section-p1">
-        <h2>New Arrivals</h2>
+    <section id="product1" class="section-p1"> <h2>New Arrivals</h2>
         <p>Summer Collection New Modern Design</p>
         <div class="pro-container">
             <div class="pro">
-                <img src="images/n1.jpg">
+                <img src="images/n1.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -317,14 +392,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n2.jpg">
+             <div class="pro">
+                <img src="images/n2.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -334,15 +408,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            
-            <div class="pro">
-                <img src="images/n3.jpg">
+             <div class="pro">
+                <img src="images/n3.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -352,14 +424,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n4.jpg">
+             <div class="pro">
+                <img src="images/n4.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -369,14 +440,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n5.jpg">
+             <div class="pro">
+                <img src="images/n5.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -386,14 +456,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n6.jpg">
+             <div class="pro">
+                <img src="images/n6.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -403,14 +472,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n7.jpg">
+             <div class="pro">
+                <img src="images/n7.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -420,14 +488,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="images/n8.jpg">
+             <div class="pro">
+                <img src="images/n8.jpg" alt="Product Image">
                 <div class="des">
                     <span>adidas</span>
                     <h5>Cartoon Astronaut T-Shirts</h5>
@@ -437,243 +504,185 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-
                     </div>
                     <h4>$78</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            
-            
         </div>
+    </section>
 
-<section id="sm-banner" class="section-p1">
-    <div class="banner-box">
-        <h4>Crazy Deals</h4>
-        <h2>Buy 1 Get 1 Free</h2>
-        <span>The best Classic Dress Is On Sale At Carac</span>
-        <button class="white">Learn More</button>
-    </div>
-    <div class="banner-box2">
-        <h4>Spring / Summer</h4>
-        <h2>Upcoming Season</h2>
-        <span>The best Classic Dress Is On Sale At Carac</span>
-        <button class="white">Collection</button>
-    </div>
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The best Classic Dress Is On Sale At Carac</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box2">
+            <h4>Spring / Summer</h4>
+            <h2>Upcoming Season</h2>
+            <span>The best Classic Dress Is On Sale At Carac</span>
+            <button class="white">Collection</button>
+        </div>
+    </section>
 
-</section>
+    <section id="banner3">
+        <div class="banner-box">
+            <h2><a href="" style=" color: white; text-decoration: none;">SEASONAL SALE</a></h2>
+            <h3>Winter Collection -50% OFF</h3>
+        </div>
+        <div class="banner-box banner-box2">
+            <h2><a href="" style=" color: white; text-decoration: none;">WINTER SALE</a></h2>
+             <h3>Upcoming Season</h3>
+        </div>
+        <div class="banner-box banner-box3">
+            <h2><a href="" style=" color: white; text-decoration: none;">STOCK CLEARANCE</a></h2>
+            <h3>Winter Collection -50% OFF</h3>
+        </div>
+    </section>
 
-<section id="banner3">
-    <div class="banner-box">
-        <h2><a href="" style=" color: white; ">SEASONAL SALE</a>  </h2>
-        <h3>Winter Collection -50% OFF</h3>
-    </div>
-    <div class="banner-box banner-box2">
-        <h2><a href="" style=" color: white; ">WINTER SALE</a>  </h2>
-          <h3>Upcoming Season</h3>
-    </div>
-    <div class="banner-box banner-box3">
-        <h2><a href="" style=" color: white; ">STOCK CLEARANCE</a>  </h2>
-        <h3>Winter Collection -50% OFF</h3>
-    </div> 
-    
-    
-
-</section>
-<section id="newsletter" class="section-p1 section-m1" >
-    <div class="newstext">
-        <h4>Sign Up For Newsletter</h4>
-        <p>Get e-mail update about our latest shop and <span>special offers</span></p>
-    </div>
-    <div class="form">
-        <form action="email.php" method="POST" style="
-        display: flex;">
+    <section id="newsletter" class="section-p1 section-m1" >
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get e-mail update about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
             <input type="text" class="contact-inputs" placeholder="Your email address" name="email" required="">
             <button class="normal">Sign Up</button>
-        </form>      
-    </div>
-</section>
-</form>
-<footer class="section-p1">
-    <div class="col">
-        <img class="logo" src="./images/logo.png">
-        <h4>Contact</h4>
-        <p><strong>Address: </strong>565 walligton,Street 14,Nepal</p>
-        <p><strong>Phone: </strong> +02 333 68 / (+92) 01 7833 3344</p>
-
-        <p><strong>Hours: </strong>10:00 - 18:00</p>
-        <div class="follow">
-            <h4>Follow US</h4>
-            <div class="icon">
-                <i class="fab fa-facebook-f" style="color: blue;"></i>
-                <i class="fab fa-twitter" style="color: aqua;"></i>
-                <i class="fab fa-instagram" style="color: red;"></i>
-                <i class="fab fa-youtube"  style="color: red;" ></i>
-                <i class="fab fa-pinterest-p" style="color: brown;"></i>
+        </div>
+    </section>
 
 
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="./images/logo.png" alt="Logo">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>565 walligton,Street 14,Nepal</p>
+            <p><strong>Phone: </strong> +02 333 68 / (+92) 01 7833 3344</p>
+            <p><strong>Hours: </strong>10:00 - 18:00</p>
+            <div class="follow">
+                <h4>Follow US</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f" style="color: blue;"></i>
+                    <i class="fab fa-twitter" style="color: aqua;"></i>
+                    <i class="fab fa-instagram" style="color: red;"></i>
+                    <i class="fab fa-youtube"  style="color: red;" ></i>
+                    <i class="fab fa-pinterest-p" style="color: brown;"></i>
+                </div>
             </div>
         </div>
-
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="deliveryinfo.html">Delivery Information</a>
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-
-    </div>
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="login.html">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-
-    </div>
-    <div class="col install">
-        <h4>Install App</h4>
-        <p>From App STore or Google Play</p>
-        <div class="row">
-            <img src="./images/app.jpg">
-            <img src="./images/play.jpg">  </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="deliveryinfo.html">Delivery Information</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App STore or Google Play</p>
+            <div class="row">
+                <img src="./images/app.jpg" alt="App Store">
+                <img src="./images/play.jpg" alt="Google Play">
+            </div>
             <p>Secured Payment Gateways</p>
-            <img src="./images/pay.png">
-        </footer>
+            <img src="./images/pay.png" alt="Payment Gateways">
+        </div>
+    </footer>
 
-
-        <div class="copyright">
- <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
-           Copyright section 2024,Test@gmail.com
-
-        </marquee>     
-       </div>
-<script>
-    var loader = document.getElementById("preloader");
-    window.addEventListener("load", function(){
-        setTimeout(function(){
-
-loader.style.display ="none";
-        },2000);
-    });
-</script>
-
-    <script src="main.js"></script>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <iframe	style="width: 400px; height: 600px;" src="https://app.fastbots.ai/embed/cm6nbbqmn0b2msvk364o2pto4"></iframe>
-    <title>Home Page with Support Section</title>
-
-    <style>
-        /* Styling for the support icon */
-        .support-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #007BFF;
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Styling for the support box */
-        .support-box {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 300px;
-            height: 250px;
-            background-color: #f1f1f1;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            display: none;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        /* Styling for the welcome message */
-        .support-box h4 {
-            margin-bottom: 10px;
-            font-size: 18px;
-            text-align: center;
-        }
-
-        .support-box p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        /* Styling for the question input area */
-        .input-area {
-            width: 100%;
-            height: 80px;
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-            resize: none;
-        }
-
-        /* Styling for the submit button */
-        .submit-button {
-            background-color: #007BFF;
-            color: white;
-            padding: 8px 15px;
-            font-size: 14px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .submit-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <!-- Content of your page -->
-    <div>
-        <h1>Welcome to My Home Page!</h1>
-        <!-- Your existing page content goes here -->
+    <div class="copyright">
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
+            Copyright section 2024,Test@gmail.com
+        </marquee>
     </div>
 
-    <!-- Support Icon -->
     <div class="support-icon" onclick="toggleSupportBox()">
         ?
     </div>
 
-    <!-- Support Box (Initially hidden) -->
     <div class="support-box" id="supportBox">
-        <h4>Welcome to Support!</h4>
-        <p>How can I assist you today?</p>
-        <textarea class="input-area" id="userQuery" placeholder="Ask your question here..."></textarea>
-        <button class="submit-button" onclick="submitQuery()">Submit</button>
+        <iframe src="https://app.fastbots.ai/embed/cm6nbbqmn0b2msvk364o2pto4"></iframe>
     </div>
 
-    <script>
-        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm6nbbqmn0b2msvk364o2pto4"></script>
-        
-    </script>
-    
-</body>
-</html>
 
-</body>
+    <script>
+        var loader = document.getElementById("preloader");
+        window.addEventListener("load", function(){
+            setTimeout(function(){
+                loader.style.display ="none";
+            },2000);
+        });
+    </script>
+
+    <script>
+        // Show search bar on scroll
+        window.addEventListener('scroll', function() {
+            const scrollSearchBar = document.getElementById('scrollSearchBar');
+            // Adjust the scroll threshold (100px) as needed
+            if (window.scrollY > 100) {
+                // Use 'flex' or 'block' depending on how you want to display it
+                scrollSearchBar.style.display = 'flex';
+            } else {
+                scrollSearchBar.style.display = 'none';
+            }
+        });
+
+        // Search function
+        const searchProduct = () => {
+            const searchbox = document.getElementById("productSearch").value.toUpperCase();
+            // This selector might need adjustment based on your actual product elements
+            // If your products are within divs with class 'pro', this should work
+            const products = document.querySelectorAll(".pro");
+
+            products.forEach(product => {
+                // Assuming the product name is inside an <h5> tag within the .pro div
+                const productNameElement = product.querySelector('h5');
+                if (productNameElement) {
+                     const productName = productNameElement.textContent.toUpperCase();
+
+                     if (productName.includes(searchbox)) {
+                         product.style.display = ""; // Show element
+                     } else {
+                         product.style.display = "none"; // Hide element
+                     }
+                }
+            });
+        }
+
+        // Add event listener for input changes to search as typing
+        document.getElementById("productSearch").addEventListener("input", function() {
+            searchProduct();
+        });
+        // Optional: Trigger initial search on page load if the input has a value (unlikely for a fresh load)
+        // searchProduct();
+    </script>
+
+
+    <script>
+        function toggleSupportBox() {
+            const supportBox = document.getElementById('supportBox');
+            // Check current display style
+            if (supportBox.style.display === 'none' || supportBox.style.display === '') {
+                // If hidden, show it
+                supportBox.style.display = 'block'; // Use 'block' as it contains an iframe
+            } else {
+                // If shown, hide it
+                supportBox.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="main.js"></script>
+
+    </body>
 </html>
